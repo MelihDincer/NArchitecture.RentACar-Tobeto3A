@@ -4,7 +4,7 @@ namespace Domain.Entities;
 
 public class Model : BaseEntity<int>
 {
-    public Guid BrandId { get; set; }
+    public int BrandId { get; set; }
     public string Name { get; set; }
 
     public Brand? Brand { get; set; }
@@ -16,7 +16,7 @@ public class Model : BaseEntity<int>
         Cars = new HashSet<Car>();
     }
 
-    public Model(int id, Guid brandId, string name)
+    public Model(int id, int brandId, string name)
     {
         Id = id;
         BrandId = brandId;
