@@ -1,12 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Core.Persistence.Repositories;
 
-namespace Domain.Entities
+namespace Domain.Entities;
+
+public class Brand : BaseEntity<int>
 {
-    internal class Brand
+    public string Name { get; set; }  //Audi 
+
+
+    public ICollection<Model> Models { get; set; }
+
+    public Brand()
     {
+        Models = new HashSet<Model>();
+    }
+
+    public Brand(int id, string name) : this()
+    {
+        Id = id;
+        Name = name;
     }
 }
