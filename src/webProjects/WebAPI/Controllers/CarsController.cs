@@ -1,7 +1,7 @@
 ﻿using Application.Features.Cars.Commands.Create;
 using Application.Features.Cars.Commands.Delete;
 using Application.Features.Cars.Commands.Update;
-using Application.Features.Cars.Dtos;
+using Application.Features.Cars.Queries.GetAll;
 using Application.Features.Cars.Queries.GetById;
 using Microsoft.AspNetCore.Mvc;
 
@@ -14,7 +14,7 @@ namespace WebAPI.Controllers
         [HttpGet("GetAll")]
         public async Task<IActionResult> GetAllAsync()
         {
-            return Ok(await Mediator.Send(new GetAllCarsResponse()));
+            return Ok(await Mediator.Send(new GetAllCarsQuery()));
         }
 
         [HttpGet("GetById")]
