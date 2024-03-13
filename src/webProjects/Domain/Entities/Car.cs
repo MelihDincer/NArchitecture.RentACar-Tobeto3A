@@ -10,7 +10,7 @@ public class Car : BaseEntity<int>
     public int State { get; set; }  // 1- Available 2- Rented 3-Under Maitenance
     public double DailyPrice { get; set; }
 
-    public Model Model { get; set; }
+    public Model? Model { get; set; }
 
     public Car()
     {
