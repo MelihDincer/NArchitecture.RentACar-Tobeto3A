@@ -22,7 +22,7 @@ public class GetAllCarsQuery : IRequest<List<GetAllCarsResponse>>
 
         public async Task<List<GetAllCarsResponse>> Handle(GetAllCarsQuery request, CancellationToken cancellationToken)
         {
-            List<Car> cars = await _carRepository.GetAllAsync(include: x => x.Include(x => x.Model));
+            List<Car> cars = await _carRepository.GetAllAsync(include: x => x.Include(x => x.Model).Include(x => x.Model.Brand));
             List<GetAllCarsResponse> responses = _mapper.Map<List<GetAllCarsResponse>>(cars);
             return responses;
         }

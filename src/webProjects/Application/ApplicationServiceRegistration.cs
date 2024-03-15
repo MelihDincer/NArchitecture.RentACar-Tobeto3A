@@ -24,7 +24,6 @@ public static class ApplicationServiceRegistration
         services.AddSingleton<LoggerServiceBase, MongoDbLogger>();
         services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
-
         services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
         services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestValidationBehavior<,>));
         services.AddTransient(typeof(IPipelineBehavior<,>), typeof(PerformanceBehavior<,>));
