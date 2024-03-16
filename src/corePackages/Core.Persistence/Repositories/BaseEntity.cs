@@ -1,6 +1,8 @@
-﻿namespace Core.Persistence.Repositories;
+﻿using Core.Persistence.Repositories.EntityFramework;
 
-public class BaseEntity<TId>
+namespace Core.Persistence.Repositories;
+
+public class BaseEntity<TId> : IEntityTimestamps
 {
     public TId Id { get; set; }
 
