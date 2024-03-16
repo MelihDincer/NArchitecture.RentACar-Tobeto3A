@@ -1,5 +1,4 @@
-﻿using Core.CrossCutting.Exceptions.Types;
-using FluentValidation;
+﻿using FluentValidation;
 using MediatR;
 using static Core.CrossCutting.Exceptions.Types.ValidationException;
 using ValidationException = Core.CrossCutting.Exceptions.Types.ValidationException;
@@ -15,7 +14,6 @@ public class RequestValidationBehavior<TRequest, TResponse> : IPipelineBehavior<
     {
         _validators = validators;
     }
-
 
     public Task<TResponse> Handle(TRequest request, RequestHandlerDelegate<TResponse> next, CancellationToken cancellationToken)
     {
