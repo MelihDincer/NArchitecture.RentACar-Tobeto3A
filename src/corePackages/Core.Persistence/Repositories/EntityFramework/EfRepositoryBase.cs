@@ -90,27 +90,10 @@ public class EfRepositoryBase<TEntity, TEntityId, TContext> : IAsyncRepository<T
     {
         if (!permanent)
         {
-            CheckHasEntityHaveOneToOneRelation(entity);
             await setEntityAsSoftDeletedAsync(entity);
         }
         else
             Context.Remove(entity);
-    }
-
-    protected void CheckHasEntityHaveOneToOneRelation(TEntity entity)
-    {
-        IEnumerable<IForeignKey> foreignKeys = Context.Entry(entity).Metadata.GetForeignKeys();
-        bool hasEntityHaveOneToOneRelation =
-            foreignKeys.Any()
-            && foreignKeys.All(x =>
-                x.DependentToPrincipal?.IsCollection == true
-                || x.PrincipalToDependent?.IsCollection == true
-                || x.DependentToPrincipal?.ForeignKey.DeclaringEntityType.ClrType == entity.GetType()
-            );
-        if (hasEntityHaveOneToOneRelation)
-            throw new InvalidOperationException(
-                "Entity has one-to-one relationship. Soft Delete causes problems if you try to create entry again by same foreign key."
-            );
     }
 
     private async Task setEntityAsSoftDeletedAsync(IEntityTimestamps entity)

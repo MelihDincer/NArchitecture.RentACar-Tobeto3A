@@ -11,4 +11,3 @@ public interface IPaginate<T>
     bool HasPrevious { get; } //Önceki sayfanın olup olmadığı
     bool HasNext { get; } //Sonraki sayfanın olup olmadığı
 }
-

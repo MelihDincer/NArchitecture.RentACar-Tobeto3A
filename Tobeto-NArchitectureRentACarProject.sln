@@ -15,7 +15,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "src\webProjects\D
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Persistence", "src\webProjects\Persistence\Persistence.csproj", "{A04FC263-DEDB-41F2-B79E-5DFFF5A7CB15}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Insfrastructure", "src\webProjects\Insfrastructure\Insfrastructure.csproj", "{CEEC76E8-67FD-4EF8-9D94-5F59F03B72EA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure", "src\webProjects\Insfrastructure\Infrastructure.csproj", "{CEEC76E8-67FD-4EF8-9D94-5F59F03B72EA}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core.Persistence", "src\corePackages\Core.Persistence\Core.Persistence.csproj", "{9C2E72EE-EBF7-413E-9D63-BF5265BD405A}"
 EndProject
