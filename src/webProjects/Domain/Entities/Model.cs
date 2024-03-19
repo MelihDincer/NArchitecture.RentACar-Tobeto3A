@@ -7,7 +7,7 @@ public class Model : BaseEntity<int>
     public int BrandId { get; set; }
     public string Name { get; set; }
 
-    public Brand? Brand { get; set; }
+    public virtual Brand? Brand { get; set; }
 
     public virtual ICollection<Car> Cars { get; set; }
 

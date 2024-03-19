@@ -4,6 +4,7 @@ using AutoMapper;
 using Core.Persistence.Paging;
 using Domain.Entities;
 using MediatR;
+using Microsoft.EntityFrameworkCore;
 
 namespace Application.Features.Cars.Queries.GetListDynamic;
 
@@ -20,8 +21,7 @@ public class GetListCarDynamicQueryHandler : IRequestHandler<GetListCarDynamicQu
 
     public async Task<CarListModel> Handle(GetListCarDynamicQuery request, CancellationToken cancellationToken)
     {
-        IPaginate<Car> cars = await _carRepository.GetListByDynamicAsync(request.Dynamic, index: request.PageRequest.Page,
-            size: request.PageRequest.PageSize);
+        IPaginate<Car> cars = await _carRepository.GetListByDynamicAsync(request.Dynamic, include: c => c.Include(c => c.Model).Include(x => x.Model.Brand), index: request.PageRequest.Page, size: request.PageRequest.PageSize);
         CarListModel carListModel = _mapper.Map<CarListModel>(cars);
         return carListModel;
     }
