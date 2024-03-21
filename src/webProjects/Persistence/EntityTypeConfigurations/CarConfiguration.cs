@@ -19,5 +19,6 @@ public class CarConfiguration : IEntityTypeConfiguration<Car>
         builder.HasQueryFilter(u => !u.DeletedDate.HasValue);
 
         builder.HasOne(x => x.Model);
+        builder.HasMany(x => x.CarImages);
     }
 }

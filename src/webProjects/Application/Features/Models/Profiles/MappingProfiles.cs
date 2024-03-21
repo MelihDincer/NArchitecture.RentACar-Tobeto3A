@@ -14,7 +14,7 @@ namespace Application.Features.Models.Profiles
         public MappingProfiles()
         {
             CreateMap<Model, CreateModelCommand>().ReverseMap();
-            CreateMap<Model, CreatedModelResponse>().ReverseMap();
+            CreateMap<Model, CreatedModelResponse>().ForMember(c => c.BrandName, opt => opt.MapFrom(c => c.Brand.Name)).ReverseMap();
 
             CreateMap<Model, DeleteModelCommand>().ReverseMap();
             CreateMap<Model, DeletedModelResponse>().ReverseMap();
