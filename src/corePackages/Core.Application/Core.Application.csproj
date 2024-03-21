@@ -14,6 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Core.Security\Core.Security.csproj" />
     <ProjectReference Include="..\Core.CrossCuttingConcern\Core.CrossCuttingConcerns.csproj" />
   </ItemGroup>
 

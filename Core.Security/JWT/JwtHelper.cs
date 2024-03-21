@@ -21,7 +21,6 @@ public class JwtHelper : ITokenHelper
         _tokenOptions = Configuration.GetSection("TokenOptions").Get<TokenOptions>();
     }
 
-
     public RefreshToken CreateRefreshToken(User user, string ipAddress)
     {
         RefreshToken refreshToken = new()
@@ -48,7 +47,6 @@ public class JwtHelper : ITokenHelper
             Expiration = _accessTokenExpiration
         };
     }
-
 
     public JwtSecurityToken CreateJwtSecurityToken(TokenOptions tokenOptions, User user,
                                                  SigningCredentials signingCredentials,
